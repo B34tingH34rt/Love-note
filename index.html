@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#07111c">
+<title>A little road trip under the aurora</title>
+<style>
+  :root { color-scheme: dark; --cream:#f5f0e6; --muted:#c5d0d2; --mint:#a7f0d0; }
+  * { box-sizing: border-box; }
+  html { min-height:100%; }
+  body {
+    margin:0; min-height:100vh; color:var(--cream);
+    font-family: Georgia, "Times New Roman", serif;
+    background:
+      radial-gradient(ellipse at 18% 16%, rgba(52,153,133,.22), transparent 34%),
+      radial-gradient(ellipse at 82% 8%, rgba(100,91,170,.24), transparent 32%),
+      linear-gradient(160deg,#07111c 0%,#101d2b 55%,#090e19 100%);
+    display:grid; place-items:center; overflow-x:hidden; padding:32px 18px;
+  }
+  .stars, .stars:before, .stars:after {
+    position:fixed; inset:0; pointer-events:none; content:"";
+    background-image:radial-gradient(1px 1px at 12% 22%,#fff 98%,transparent),
+      radial-gradient(1px 1px at 74% 18%,#d9fff0 98%,transparent),
+      radial-gradient(1px 1px at 43% 11%,#fff 98%,transparent),
+      radial-gradient(1px 1px at 88% 47%,#fff 98%,transparent),
+      radial-gradient(1px 1px at 23% 68%,#d9fff0 98%,transparent),
+      radial-gradient(1px 1px at 62% 77%,#fff 98%,transparent);
+    opacity:.55;
+  }
+  .stars:before { transform:translate(35px,20px) scale(1.2); opacity:.4; }
+  .aurora {
+    position:fixed; width:75vw; height:38vh; top:2%; left:12%;
+    background:linear-gradient(110deg,transparent 10%,rgba(86,230,174,.13) 38%,rgba(124,193,210,.16) 52%,rgba(157,112,214,.12) 70%,transparent 90%);
+    filter:blur(35px); transform:rotate(-9deg); border-radius:50%;
+    animation: shimmer 9s ease-in-out infinite alternate; pointer-events:none;
+  }
+  @keyframes shimmer { from{transform:translateX(-3%) rotate(-9deg) scaleY(.85);opacity:.65} to{transform:translateX(4%) rotate(-4deg) scaleY(1.12);opacity:1} }
+  .card {
+    position:relative; width:min(100%,650px); padding:clamp(30px,6vw,58px);
+    border:1px solid rgba(205,239,225,.2); border-radius:28px;
+    background:linear-gradient(145deg,rgba(14,30,42,.84),rgba(10,19,31,.83));
+    box-shadow:0 28px 90px rgba(0,0,0,.38); backdrop-filter:blur(14px);
+    text-align:center; overflow:hidden;
+  }
+  .eyebrow { font:600 11px/1.4 system-ui,sans-serif; letter-spacing:.25em; text-transform:uppercase; color:var(--mint); }
+  h1 { font-size:clamp(38px,7vw,62px); line-height:1.02; font-weight:400; letter-spacing:-.04em; margin:20px 0 18px; }
+  h1 span { color:#b6f1d8; font-style:italic; }
+  .intro { color:var(--muted); font:14px/1.7 system-ui,sans-serif; max-width:430px; margin:0 auto 30px; }
+  .letter { font-size:clamp(17px,2.5vw,20px); line-height:1.8; color:#f3eee5; max-width:470px; margin:0 auto; }
+  .letter p { margin:0 0 17px; }
+  .signature { color:#b6f1d8; font-style:italic; font-size:23px; margin-top:24px; }
+  .road {
+    height:74px; width:min(290px,80%); margin:32px auto 25px; position:relative;
+    border-top:1px solid rgba(207,230,226,.22);
+  }
+  .road:before {
+    content:""; position:absolute; left:50%; top:-1px; height:74px; width:68px;
+    transform:translateX(-50%); border-left:2px solid rgba(226,229,214,.4);
+    border-right:2px solid rgba(226,229,214,.4);
+    background:repeating-linear-gradient(to bottom,transparent 0 12px,rgba(244,239,218,.7) 12px 21px,transparent 21px 34px);
+    background-size:2px 34px; background-position:center; background-repeat:repeat-y;
+  }
+  .road:after { content:"✦"; position:absolute; top:22px; left:calc(50% + 55px); color:var(--mint); font-size:14px; }
+  .button {
+    border:1px solid rgba(167,240,208,.55); border-radius:999px; padding:13px 23px;
+    background:rgba(167,240,208,.1); color:var(--cream); font:600 12px system-ui,sans-serif;
+    letter-spacing:.09em; text-transform:uppercase; cursor:pointer; transition:.2s ease;
+  }
+  .button:hover { background:rgba(167,240,208,.2); transform:translateY(-2px); }
+  .reply { min-height:25px; color:var(--mint); font:italic 16px Georgia,serif; margin:17px 0 0; }
+  footer { color:rgba(220,230,228,.48); font:10px system-ui,sans-serif; letter-spacing:.12em; margin-top:28px; text-transform:uppercase; }
+  @media (prefers-reduced-motion: reduce) { .aurora { animation:none; } }
+</style>
+</head>
+<body>
+<div class="stars"></div><div class="aurora"></div>
+<main class="card">
+  <div class="eyebrow">A little note for you</div>
+  <h1>Somewhere under<br><span>the northern lights</span></h1>
+  <p class="intro">I have a little dream I keep coming back to — and it has you in it.</p>
+  <section class="letter">
+    <p>I want to see the aurora borealis with you.</p>
+    <p>Not by flying there, though. I’m imagining us taking the road instead — windows full of winter, our favourite songs playing, warm drinks in the cup holders, and nowhere to be in a hurry.</p>
+    <p>We’ll drive as far north as the road takes us, pull over somewhere quiet, look up at the sky, and wait for it to glow.</p>
+    <p>And if the lights don’t show, that’s okay. I’ll still be exactly where I want to be: on an adventure with you.</p>
+  </section>
+  <div class="signature">Would you take that road with me?</div>
+  <div class="road" aria-hidden="true"></div>
+  <button class="button" id="answer">I’d love to ✦</button>
+  <p class="reply" id="reply" aria-live="polite"></p>
+  <footer>no planes · just us · one very long road</footer>
+</main>
+<script>
+  const button = document.getElementById('answer');
+  const reply = document.getElementById('reply');
+  button.addEventListener('click', () => {
+    reply.textContent = "♡♡♡♡♡♡♡♡♡♡♡♡♡♡♡";
+    button.textContent = "Our adventure awaits";
+  });
+</script>
+</body>
+</html>
